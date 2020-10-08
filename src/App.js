@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const produtos = [
+		{
+			id: 0,
+			idCategory: 0,
+			name: 'Coquinha',
+			description: 'Eu detesto',
+			price: 3.5,
+			image: '/static/images/coca.png'
+		},
+		{
+			id: 1,
+			idCategory: 2,
+			name: 'Croquete',
+			description: 'Que fome',
+			price: 3.5,
+			image: '/static/images/croquete.png'
+		}
+	];
+	const categoria = [
+		{
+			id: 0,
+			name: 'Bebidas'
+		},
+		{
+			id: 1,
+			name: 'Doces'
+		},
+		{
+			id: 2,
+			name: 'Salgados'
+		}
+	];
+	return (
+		<div className="App">
+			<Header />
+		</div>
+	);
 }
 
 export default App;
