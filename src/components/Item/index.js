@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item, category }) => {
 	return (
-		<CardContainer xs={12} sm={12} md={2}>
+		<CardContainer xs={12} sm={12} md={3}>
 			<Link to="/product">
 				<CardImg src={require(`../../${item.image}`)} alt={item.description} />
 				<CardTitle>{item.name}</CardTitle>

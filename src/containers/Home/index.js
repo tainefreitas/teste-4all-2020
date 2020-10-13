@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Row } from 'react-grid-system';
+import { Grid, Row } from 'react-flexbox-grid';
 import Item from '../../components/Item';
 
-
-const Home = () =>{
-    const produtos = [
+const Home = () => {
+	const produtos = [
 		{
 			id: 0,
 			idCategory: 0,
@@ -68,8 +67,7 @@ const Home = () =>{
 			description: 'Pepsi lata 350ml',
 			price: 3.5,
 			image: 'assets/img/products/pepsi.jpg'
-		},
-	
+		}
 	];
 	const categoria = [
 		{
@@ -85,15 +83,15 @@ const Home = () =>{
 			name: 'Salgados'
 		}
 	];
-    return (
-        <Container fluid>
-        <Row>
-            {produtos.map((item) => {
-                return <Item item={item} category={categoria[item.idCategory].name} key={item.id} />;
-            })}
-        </Row>
-    </Container>
-    )
+	return (
+		<Grid>
+			<Row>
+				{produtos.map((item) => {
+					return <Item item={item} category={categoria[item.idCategory].name} key={item.id} />;
+				})}
+			</Row>
+		</Grid>
+	);
 };
 
 export default Home;

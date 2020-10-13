@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Col } from 'react-grid-system';
+import { Col } from 'react-flexbox-grid';
 
 export const CardContainer = styled(Col)`
     border: 3px solid #e3e3e3;
