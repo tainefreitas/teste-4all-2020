@@ -66,6 +66,10 @@ const Checkout = () => {
 						})}
 					</tbody>
 				</table>
+				<div>
+					<p>Total</p>
+					<p>0</p>
+				</div>
 			</Row>
 		</Grid>
 	);
