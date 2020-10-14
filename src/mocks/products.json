@@ -4,7 +4,7 @@
         "idCategory": 0,
         "name": "Coca Mini",
         "description":"Refrigerante Coca-Cola 250ml",
-        "price": 3.5,
+        "price": 1.9,
         "image": "assets/img/products/coca_mini.jpg"
     },
     {
@@ -12,7 +12,7 @@
         "idCategory": 2,
         "name": "Croquete",
         "description": "Croquete de carne moída",
-        "price": 3.5,
+        "price": 2.5,
         "image": "assets/img/products/croquete.jpg"
     },
     {
@@ -20,7 +20,7 @@
         "idCategory": 2,
         "name": "Coxinha",
         "description": "Coxinha com recheio de frango",
-        "price": 3.5,
+        "price": 2,
         "image": "assets/img/products/coxinha.jpg"
     },
     {
@@ -28,7 +28,7 @@
         "idCategory": 1,
         "name": "Brigadeiro",
         "description": "Brigadeiro tradicional",
-        "price": 3.5,
+        "price": 1,
         "image": "assets/img/products/brigadeiro.jpg"
     },
     {
@@ -36,7 +36,7 @@
         "idCategory": 1,
         "name": "Chocolate Laka",
         "description": "Chocolate Laka Branco 90g",
-        "price": 3.5,
+        "price": 5.99,
         "image": "assets/img/products/laka.jpg"
     },
     {
@@ -52,7 +52,7 @@
         "idCategory": 2,
         "name": "Pastel",
         "description": "Pastel sabor carne",
-        "price": 3.5,
+        "price": 2.5,
         "image": "assets/img/products/pastel.jpg"
     },
     {
@@ -60,7 +60,7 @@
         "idCategory": 0,
         "name": "Pepsi",
         "description": "Pepsi lata 350ml",
-        "price": 3.5,
+        "price": 1.5,
         "image": "assets/img/products/pepsi.jpg"
     }
 ]
