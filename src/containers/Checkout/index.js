@@ -43,10 +43,11 @@ const Checkout = () => {
 
 	function handleCloseModal() {
 		setShowModal(false);
+		dispatch(clearCheckout())
 	}
 	function handleClick() {
 		handleOpenModal();
-		dispatch(clearCheckout);
+
 	}
 
 	return (
@@ -81,7 +82,8 @@ const Checkout = () => {
 						isOpen={showModal}
 						style={customStyles}
 						onRequestClose={handleCloseModal}
-						contentLabel="Example Modal"
+						ariaHideApp={false}
+						contentLabel="Success!"
 					>
 						<ModalContainer>
 							<FontAwesomeIcon icon={faCheckCircle} size='5x' color='#336600' />
