@@ -6,3 +6,6 @@ export const ImgCheckout = styled.img`
     object-fit: scale-down;
     padding-right: 15px;
 `;
+export const CheckoutItemContainer = styled.div`
+    display: flex;
+`;

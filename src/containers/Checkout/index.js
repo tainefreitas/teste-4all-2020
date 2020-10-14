@@ -1,76 +1,48 @@
 import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
+import { useSelector } from 'react-redux';
 import ItemCheckout from '../../components/ItemCheckout';
-
+import { CheckoutTitle, CheckoutContainer, CheckoutTableHeader, CheckoutNoItems } from './style';
+import { selectAllProducts } from '../../store/selectors/selectors';
+import { CardBtn } from '../../components/Item/style';
 const Checkout = () => {
-	const itemsCart = [
-		{
-			id: 0,
-			idCategory: 0,
-			name: 'Coca Mini',
-			description: 'Refrigerante Coca-Cola 250ml',
-			price: 3.5,
-			image: 'assets/img/products/coca_mini.jpg',
-			quantity: 3
-		},
-		{
-			id: 1,
-			idCategory: 2,
-			name: 'Croquete',
-			description: 'Croquete de carne moída',
-			price: 3.5,
-			image: 'assets/img/products/croquete.jpg',
-			quantity: 2
-		},
-		{
-			id: 7,
-			idCategory: 0,
-			name: 'Pepsi',
-			description: 'Pepsi lata 350ml',
-			price: 3.5,
-			image: 'assets/img/products/pepsi.jpg',
-			quantity: 1
-		}
-	];
-	const categoria = [
-		{
-			id: 0,
-			name: 'Bebidas'
-		},
-		{
-			id: 1,
-			name: 'Doces'
-		},
-		{
-			id: 2,
-			name: 'Salgados'
-		}
-	];
+	const state = useSelector(selectAllProducts);
 	return (
 		<Grid>
-			<p>Finalizar Pedido</p>
-			<Row>
-				<table>
-					<thead>
-						<tr>
-							<th>Item</th>
-							<th>Quantidade</th>
-							<th>Total</th>
-						</tr>
-					</thead>
-					<tbody>
-						{itemsCart.map((item) => {
-							return (
-								<ItemCheckout item={item} category={categoria[item.idCategory].name} key={item.id} />
-							);
-						})}
-					</tbody>
-				</table>
+			<CheckoutTitle>Finalizar Pedido</CheckoutTitle>
+			{state.selectItems ? (
 				<div>
-					<p>Total</p>
-					<p>0</p>
+					<Row>
+						<CheckoutContainer>
+							<CheckoutTableHeader>
+								<tr>
+									<th>Item</th>
+									<th>Quantidade</th>
+									<th>Total</th>
+								</tr>
+							</CheckoutTableHeader>
+							<tbody>
+								{state.selectItems.map((item) => {
+									return (
+										<ItemCheckout
+											item={item}
+											category={state.category[item.idCategory].name}
+											key={item.id}
+										/>
+									);
+								})}
+							</tbody>
+						</CheckoutContainer>
+					</Row>
+					<Row>
+						<p>Total dos produtos: </p>
+						<p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(state.total)}</p>
+					</Row>
+					<CardBtn>Finalizar Compra</CardBtn>
 				</div>
-			</Row>
+			) : (
+				<CheckoutNoItems>Não há itens selecionados</CheckoutNoItems>
+			)}
 		</Grid>
 	);
 };

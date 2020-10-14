@@ -1,23 +1,23 @@
 import React from 'react';
-import { ImgCheckout } from './style';
+import { ImgCheckout, CheckoutItemContainer } from './style';
 
 const ItemCheckout = ({ item }) => {
 	return (
 		<tr>
 			<td>
-				<div>
+				<CheckoutItemContainer>
 					<ImgCheckout src={require(`../../${item.image}`)} alt={item.description} />
 					<div>
 						<p>{item.name}</p>
-						<p>{item.price}</p>
+						<p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</p>
 					</div>
-				</div>
+				</CheckoutItemContainer>
 			</td>
 			<td>
 				<p>{item.quantity}</p>
 			</td>
 			<td>
-				<p>{item.price * item.quantity}</p>
+				<p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(item.price * item.quantity)}</p>
 			</td>
 		</tr>
 	);
