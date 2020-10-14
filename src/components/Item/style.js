@@ -17,6 +17,8 @@ export const CardBtn = styled.button`
 	background-color: transparent;
 	color: green;
 	border: 1px solid green;
+	cursor: pointer;
+
 `;
 
 export const CardTitle = styled.h1`

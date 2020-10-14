@@ -1,8 +1,3 @@
-//ADD ITEMS
-//FILTER ITEMS
-// REMOVE ITEM
-//ADD QUANTITY
-
 export function addProduct(id){
     return {
         type: 'ADD_PRODUCT',
@@ -28,10 +23,10 @@ export function removeQuantity(id){
     }
 }
 
-export function filterProduct(id){
+export function filterProduct(idCategory){
     return {
         type: 'FILTER_PRODUCT',
-        payload: id
+        payload: idCategory
     }
 }
 export function clearCheckout(){

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 
 import ItemCheckout from '../../components/ItemCheckout';
 import {
@@ -16,10 +17,12 @@ import {
 	ModalContainer
 } from './style';
 import { selectAllProducts } from '../../store/selectors/selectors';
+import { clearCheckout } from '../../store/actions/Products';
 
 const Checkout = () => {
 	const state = useSelector(selectAllProducts);
 	const [ showModal, setShowModal ] = useState(false);
+	const dispatch = useDispatch();
 
 	const customStyles = {
 		content: {
@@ -43,6 +46,7 @@ const Checkout = () => {
 	}
 	function handleClick() {
 		handleOpenModal();
+		dispatch(clearCheckout);
 	}
 
 	return (

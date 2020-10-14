@@ -30,7 +30,51 @@ export default function(state = initialState, action) {
 				};
 			}
 		}
-		
+		case 'REMOVE_PRODUCT': {
+			let itemToRemove = state.products.find((item) => item.id === action.payload);
+			let new_items = state.selectedItems.filter((item) => action.payload !== item.id);
+			let newTotal = state.total - itemToRemove.price * itemToRemove.quantity;
+			return {
+				...state,
+				selectedItems: new_items,
+				total: newTotal
+			};
+		}
+		case 'ADD_QUANTITY': {
+			let addedItem = state.selectedItems.find((item) => item.id === action.payload);
+			addedItem.quantity += 1;
+			let newTotal = state.total + addedItem.price;
+			return {
+				...state,
+				total: newTotal
+			};
+		}
+		case 'REMOVE_QUANTITY': {
+			let addedItem = state.selectedItems.find((item => item.id === action.payload))
+			if (addedItem.quantity === 1){
+				let new_items = state.selectedItems.filter (item => item.id !== action.payload)
+				let newTotal = state.total - addedItem.price
+				return{
+					...state,
+					selectedItems: new_items,
+					total: newTotal
+				}
+			}
+			else {
+				addedItem.quantity-= 1
+				let newTotal = state.total -addedItem.price
+				return{
+					...state,
+					total: newTotal
+				}
+			}
+		}
+		case 'CLEAR_CHECKOUT':{
+			return {
+				...state,
+				selectedItems: []
+			}
+		}
 		default:
 			return state;
 	}

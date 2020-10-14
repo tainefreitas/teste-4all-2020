@@ -9,3 +9,11 @@ export const ImgCheckout = styled.img`
 export const CheckoutItemContainer = styled.div`
     display: flex;
 `;
+
+export const TransparentButton = styled.button`
+    background-color: transparent;
+    color: black;
+    border: transparent;
+    margin: 0 15px;
+    cursor: pointer;
+`;
