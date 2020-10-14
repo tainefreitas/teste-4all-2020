@@ -10,7 +10,6 @@ const Home = () => {
 	const [ filteredProducts, setFilteredProducts ] = useState(state.products);
 
 	function handleChange(e) {
-		console.log(e.target.value);
 		if (e.target.value === 'no_category') setFilteredProducts(state.products);
 		else {
 			let filteredItems = state.products.filter((item) => item.idCategory === parseInt(e.target.value));
