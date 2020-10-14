@@ -2,7 +2,8 @@ import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import { useSelector } from 'react-redux';
 import Item from '../../components/Item';
-import {selectAllProducts} from '../../store/selectors/selectors'
+import {selectAllProducts} from '../../store/selectors/selectors';
+
 const Home = () => {
 	const state  = useSelector(selectAllProducts);
 	return (

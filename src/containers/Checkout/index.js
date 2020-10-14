@@ -2,15 +2,15 @@ import React from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import { useSelector } from 'react-redux';
 import ItemCheckout from '../../components/ItemCheckout';
-import { CheckoutTitle, CheckoutContainer, CheckoutTableHeader, CheckoutNoItems } from './style';
+import { CheckoutTitle, CheckoutContainer, CheckoutTableHeader, CheckoutNoItems, CheckoutTotal, CheckoutButtonFinish } from './style';
 import { selectAllProducts } from '../../store/selectors/selectors';
-import { CardBtn } from '../../components/Item/style';
 const Checkout = () => {
 	const state = useSelector(selectAllProducts);
+	console.log('carrinho: ', state.categories);
 	return (
 		<Grid>
 			<CheckoutTitle>Finalizar Pedido</CheckoutTitle>
-			{state.selectItems ? (
+			{state.selectedItems.length ? (
 				<div>
 					<Row>
 						<CheckoutContainer>
@@ -22,23 +22,19 @@ const Checkout = () => {
 								</tr>
 							</CheckoutTableHeader>
 							<tbody>
-								{state.selectItems.map((item) => {
-									return (
-										<ItemCheckout
-											item={item}
-											category={state.category[item.idCategory].name}
-											key={item.id}
-										/>
-									);
+								{state.selectedItems.map((item) => {
+									return <ItemCheckout item={item} key={item.id} />;
 								})}
 							</tbody>
 						</CheckoutContainer>
 					</Row>
 					<Row>
-						<p>Total dos produtos: </p>
-						<p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(state.total)}</p>
+						<CheckoutTotal>
+							Total dos produtos:{' '}
+							{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(state.total)}
+						</CheckoutTotal>
 					</Row>
-					<CardBtn>Finalizar Compra</CardBtn>
+					<CheckoutButtonFinish>Finalizar Compra</CheckoutButtonFinish>
 				</div>
 			) : (
 				<CheckoutNoItems>Não há itens selecionados</CheckoutNoItems>
