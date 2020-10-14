@@ -1,4 +1,4 @@
-import { Grid } from 'react-flexbox-grid';
+import { Grid, Row } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { CardBtn } from '../../components/Item/style';
 
@@ -10,7 +10,9 @@ export const CheckoutTitle = styled.h2`
 
 export const CheckoutContainer = styled.table`
 	width: 80%;
-	margin: auto;
+    margin: auto;
+    border: 2px solid #F2F2F2;
+    padding: 15px;
 `;
 
 export const CheckoutTableHeader = styled.thead`
@@ -21,14 +23,21 @@ export const CheckoutNoItems = styled(CheckoutTitle)`
     font-size: 25px;
     color: #000;
 `;
-
-export const CheckoutTotal = styled(CheckoutNoItems)`
-    font-size: 15px;
-    text-align: end;
+export const CheckoutTotalContainer = styled(Row)`
+    justify-content: flex-end;
+    width: 95%;
+`;
+export const CheckoutTotalText = styled(CheckoutNoItems)`
+    font-size: 19px;
 `;
 
+export const CheckoutButtonContainer = styled(Row)`
+    justify-content: center;
+`;
 export const CheckoutButtonFinish = styled(CardBtn)`
     margin: 0 30px;
+    font-weight: 700;
+    font-size: 18px;
 `;
 
 export const ModalContainer = styled(Grid)`

@@ -12,9 +12,11 @@ import {
 	CheckoutContainer,
 	CheckoutTableHeader,
 	CheckoutNoItems,
-	CheckoutTotal,
+	CheckoutTotalContainer,
+	CheckoutTotalText,
 	CheckoutButtonFinish,
-	ModalContainer
+	ModalContainer,
+	CheckoutButtonContainer
 } from './style';
 import { selectAllProducts } from '../../store/selectors/selectors';
 import { clearCheckout } from '../../store/actions/Products';
@@ -43,11 +45,10 @@ const Checkout = () => {
 
 	function handleCloseModal() {
 		setShowModal(false);
-		dispatch(clearCheckout())
+		dispatch(clearCheckout());
 	}
 	function handleClick() {
 		handleOpenModal();
-
 	}
 
 	return (
@@ -71,13 +72,16 @@ const Checkout = () => {
 							</tbody>
 						</CheckoutContainer>
 					</Row>
-					<Row>
-						<CheckoutTotal>
+					<CheckoutTotalContainer>
+						<CheckoutTotalText>
 							Total dos produtos:{' '}
 							{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(state.total)}
-						</CheckoutTotal>
-					</Row>
-					<CheckoutButtonFinish onClick={handleClick}>Finalizar Compra</CheckoutButtonFinish>
+						</CheckoutTotalText>
+					</CheckoutTotalContainer>
+					<CheckoutButtonContainer>
+						<CheckoutButtonFinish onClick={handleClick}>Finalizar Compra</CheckoutButtonFinish>
+					</CheckoutButtonContainer>
+
 					<Modal
 						isOpen={showModal}
 						style={customStyles}
@@ -86,7 +90,7 @@ const Checkout = () => {
 						contentLabel="Success!"
 					>
 						<ModalContainer>
-							<FontAwesomeIcon icon={faCheckCircle} size='5x' color='#336600' />
+							<FontAwesomeIcon icon={faCheckCircle} size="5x" color="#336600" />
 							<p>Pedido realizado com sucesso!</p>
 							<CheckoutButtonFinish onClick={handleCloseModal}>Fechar</CheckoutButtonFinish>
 						</ModalContainer>
