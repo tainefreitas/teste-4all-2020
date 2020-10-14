@@ -34,3 +34,8 @@ export function filterProduct(id){
         payload: id
     }
 }
+export function clearCheckout(){
+    return{
+        type: 'CLEAR_CHECKOUT'
+    }
+}

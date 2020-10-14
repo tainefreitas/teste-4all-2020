@@ -4,7 +4,7 @@ import { Col } from 'react-flexbox-grid';
 export const CardContainer = styled(Col)`
     border: 3px solid #e3e3e3;
     margin: 20px;
-    justify-content: center;
+    text-align: center;
     padding: 15px;
 `;
 export const CardImg = styled.img`

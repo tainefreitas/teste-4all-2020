@@ -1,21 +1,21 @@
+import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { CardBtn } from '../../components/Item/style';
 
-
 export const CheckoutTitle = styled.h2`
-    color:  #336600;
-    margin: 30px;
-    font-size: 30px;
+	color: #336600;
+	margin: 30px;
+	font-size: 30px;
 `;
 
-export const CheckoutContainer =  styled.table`
-    width: 80%;
-    margin: auto;
+export const CheckoutContainer = styled.table`
+	width: 80%;
+	margin: auto;
 `;
 
 export const CheckoutTableHeader = styled.thead`
-    text-align: justify;
-    font-size: 18px;
+	text-align: justify;
+	font-size: 18px;
 `;
 export const CheckoutNoItems = styled(CheckoutTitle)`
     font-size: 25px;
@@ -29,4 +29,12 @@ export const CheckoutTotal = styled(CheckoutNoItems)`
 
 export const CheckoutButtonFinish = styled(CardBtn)`
     margin: 0 30px;
+`;
+
+export const ModalContainer = styled(Grid)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    
 `;
